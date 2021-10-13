@@ -22,7 +22,7 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   const num = integers.sort((a,b) => b.integer - a.integer)
-  return num[0]
+  return num[0].integer
 }
 
 class Counter {
