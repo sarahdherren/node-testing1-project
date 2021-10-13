@@ -12,26 +12,14 @@ function trimPropertiesMutation(obj) {
   return obj
 }
 
-/**
- * [Exercise 3] findLargestInteger finds the largest integer in an array of objects { integer: 1 }
- * @param {object[]} integers - an array of objects
- * @returns {number} - the largest integer
- *
- * EXAMPLE
- * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
- */
 function findLargestInteger(integers) {
   const num = integers.sort((a,b) => b.integer - a.integer)
   return num[0].integer
 }
 
 class Counter {
-  /**
-   * [Exercise 4A] Counter creates a counter
-   * @param {number} initialNumber - the initial state of the count
-   */
   constructor(initialNumber) {
-    // ✨ initialize whatever properties are needed
+    this.count = initialNumber;
   }
 
   /**
@@ -47,9 +35,21 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
-    // ✨ implement
-  }
+    if(this.count === this.count.initialNumber){
+      this.count --
+      return this.count.initialNumber
+    } else if(this.count > 0){
+      return this.count --
+    } return this.count
+  } 
 }
+
+const counter = new Counter(3)
+   console.log(counter.countDown()) // returns 3
+   console.log(counter.countDown()) // returns 2
+   console.log(counter.countDown()) // returns 1
+   console.log(counter.countDown()) // returns 0
+   console.log(counter.countDown()) // returns 0
 
 class Seasons {
   /**
