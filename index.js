@@ -6,17 +6,6 @@ function trimProperties(obj) {
   return trimmed
 }
 
-const value = trimProperties({ foo: '  foo ', bar: 'bar ', baz: ' baz' })
-console.log(value);
-
-/**
- * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
- * @param {object} obj - an object with properties that are strings
- * @returns {object} - the same object with strings trimmed
- *
- * EXAMPLE
- * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
- */
 function trimPropertiesMutation(obj) {
   Object.keys(obj).forEach(key => 
     obj[key] = obj[key].trim())
@@ -32,7 +21,8 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  // ✨ implement
+  const num = integers.sort((a,b) => b.integer - a.integer)
+  return num[0]
 }
 
 class Counter {
