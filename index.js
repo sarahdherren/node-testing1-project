@@ -22,18 +22,6 @@ class Counter {
     this.count = initialNumber;
   }
 
-  /**
-   * [Exercise 4B] Counter.prototype.countDown counts down to zero
-   * @returns {number} - the next count, does not go below zero
-   *
-   * EXAMPLE
-   * const counter = new Counter(3)
-   * counter.countDown() // returns 3
-   * counter.countDown() // returns 2
-   * counter.countDown() // returns 1
-   * counter.countDown() // returns 0
-   * counter.countDown() // returns 0
-   */
   countDown() {
     if(this.count === this.count.initialNumber){
       this.count --
@@ -44,19 +32,10 @@ class Counter {
   } 
 }
 
-const counter = new Counter(3)
-   console.log(counter.countDown()) // returns 3
-   console.log(counter.countDown()) // returns 2
-   console.log(counter.countDown()) // returns 1
-   console.log(counter.countDown()) // returns 0
-   console.log(counter.countDown()) // returns 0
-
 class Seasons {
-  /**
-   * [Exercise 5A] Seasons creates a seasons object
-   */
   constructor() {
-    // ✨ initialize whatever properties are needed
+    this.seasons = ['fall', 'winter', 'spring', 'summer'];
+    this.season = 2;
   }
 
   /**
@@ -72,7 +51,11 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
-    // ✨ implement
+    if(this.season !== 3){
+      this.season++
+    } else{
+      this.season = 0
+    } return this.seasons[this.season]
   }
 }
 
@@ -84,6 +67,8 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
+    this.name = name
+    this.mpg = mpg
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
