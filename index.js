@@ -110,9 +110,12 @@ class Car {
  *    // result is false
  * })
  */
-function isEvenNumberAsync(number) {
-  // ✨ implement
+async function isEvenNumberAsync(number) {
+   const result = number % 2 === 0 ? true : false
+   return result
 }
+
+console.log(isEvenNumberAsync(3));
 
 module.exports = {
   trimProperties,
