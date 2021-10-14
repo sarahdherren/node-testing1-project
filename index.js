@@ -60,37 +60,21 @@ class Seasons {
 }
 
 class Car {
-  /**
-   * [Exercise 6A] Car creates a car object
-   * @param {string} name - the name of the car
-   * @param {number} tankSize - capacity of the gas tank in gallons
-   * @param {number} mpg - miles the car can drive per gallon of gas
-   */
   constructor(name, tankSize, mpg) {
     this.name = name
     this.mpg = mpg
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
-    // ✨ initialize whatever other properties are needed
+    this.fuel = tankSize
   }
-
-  /**
-   * [Exercise 6B] Car.prototype.drive adds miles to the odometer and consumes fuel according to mpg
-   * @param {string} distance - the distance we want the car to drive
-   * @returns {number} - the updated odometer value
-   *
-   * EXAMPLE
-   * const focus = new Car('focus', 20, 30)
-   * focus.drive(100) // returns 100
-   * focus.drive(100) // returns 200
-   * focus.drive(100) // returns 300
-   * focus.drive(200) // returns 500
-   * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
-   */
+  
   drive(distance) {
-    // ✨ implement
+    this.fuel = this.fuel - (distance/this.mpg).toFixed(0)
+    if(this.fuel <= 0){
+      return `Ran out of gas at ${this.mpg * this.tankSize}`
+    } return this.odometer += distance  
   }
-
+  
   /**
    * [Exercise 6C] Adds gallons to the tank
    * @param {number} gallons - the gallons of fuel we want to put in the tank
@@ -103,7 +87,13 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    // ✨ implement
+    const fuelUp = this.fuel + gallons
+    if(fuelUp > this.tank){
+      this.fuel = this.tank
+    } else {
+      this.fuel += gallons
+    }
+    return this.mpg * gallons
   }
 }
 
